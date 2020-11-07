@@ -7,13 +7,22 @@ class HomeCounterDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text(context.watch<MainBloc>().currentCounterTitle()),
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(8),
+            width: double.infinity,
+            color: Color(0xffededed),
+            child: Text(context.watch<MainBloc>().currentCounterTitle(), style: TextStyle(color: Color(0xff343434), fontWeight: FontWeight.bold, fontSize: 16)),
+          ),
           if (context.watch<MainBloc>().current != null)
-            Text(
-              context.watch<MainBloc>().current.count.toString(),
-              style: Theme.of(context).textTheme.headline4,
+            Expanded(
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(context.watch<MainBloc>().current.count.toString(),
+                    style: TextStyle(fontSize: 250, color: Color(0xff454545))),
+              ),
             ),
         ],
       ),

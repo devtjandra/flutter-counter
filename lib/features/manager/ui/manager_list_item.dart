@@ -1,5 +1,7 @@
+import 'package:counter/main_bloc.dart';
 import 'package:counter/models/counter.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ManagerListItem extends StatelessWidget {
   final Counter counter;
@@ -8,22 +10,28 @@ class ManagerListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.all(16),
-          child: Row(
-            children: [
-              Expanded(child: Text(counter.title)),
-              Text(
-                counter.count.toString(),
-                style: TextStyle(fontWeight: FontWeight.bold),
-              )
-            ],
+    return InkWell(
+      onTap: () {
+        context.read<MainBloc>().select(counter);
+        Navigator.pop(context);
+      },
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Expanded(child: Text(counter.title)),
+                Text(
+                  counter.count.toString(),
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
           ),
-        ),
-        _line()
-      ],
+          _line()
+        ],
+      ),
     );
   }
 

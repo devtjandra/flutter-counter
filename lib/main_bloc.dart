@@ -61,4 +61,9 @@ class MainBloc extends ChangeNotifier {
     current = counters[index + 1];
     notifyListeners();
   }
+
+  void select(Counter counter) {
+    current = counter;
+    notifyListeners();
+  }
 }
