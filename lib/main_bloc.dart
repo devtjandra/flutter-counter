@@ -14,7 +14,8 @@ class MainBloc extends ChangeNotifier {
   }
 
   void add(String title) {
-    debugPrint("Adding $title");
+    counters.add(Counter(count: 0, title: title));
+    notifyListeners();
   }
 
   void increment() {}
