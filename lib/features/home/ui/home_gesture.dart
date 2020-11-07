@@ -13,6 +13,9 @@ class HomeGesture extends StatelessWidget {
         onHorizontalDragEnd: (velocity) => velocity.primaryVelocity > 0
             ? context.read<MainBloc>().increment()
             : context.read<MainBloc>().decrement(),
+        onVerticalDragEnd: (velocity) => velocity.primaryVelocity > 0
+            ? context.read<MainBloc>().previous()
+            : context.read<MainBloc>().next(),
         onLongPress: () => context.read<MainBloc>().reset(),
         child: body);
   }
