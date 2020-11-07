@@ -7,19 +7,19 @@ class MainBloc extends ChangeNotifier {
   Counter current;
 
   String currentCounterTitle() {
-    if (current == null) return Texts.homeNull;
-    else return current.title;
+    if (current == null)
+      return Texts.homeNull;
+    else
+      return current.title;
   }
 
-  void increment() {
-
+  void add(String title) {
+    debugPrint("Adding $title");
   }
 
-  void decrement() {
+  void increment() {}
 
-  }
+  void decrement() {}
 
-  void reset() {
-
-  }
+  void reset() {}
 }
