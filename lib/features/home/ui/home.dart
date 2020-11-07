@@ -1,4 +1,5 @@
 import 'package:counter/features/home/ui/home_counter_display.dart';
+import 'package:counter/values/routes.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -7,6 +8,11 @@ class Home extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("Counter App"),
+          actions: [
+            IconButton(
+                icon: Icon(Icons.list),
+                onPressed: () => Navigator.pushNamed(context, Routes.manager))
+          ],
         ),
         body: Center(
           child: HomeCounterDisplay(),

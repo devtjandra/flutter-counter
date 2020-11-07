@@ -1,5 +1,7 @@
 import 'package:counter/features/home/ui/home.dart';
+import 'package:counter/features/manager/ui/manager.dart';
 import 'package:counter/main_bloc.dart';
+import 'package:counter/values/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +20,11 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),
-          home: Home()),
+          initialRoute: Routes.home,
+          routes: {
+            Routes.home: (context) => Home(),
+            Routes.manager: (context) => Manager()
+          },),
     );
   }
 }
