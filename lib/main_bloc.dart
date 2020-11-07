@@ -1,4 +1,5 @@
 import 'package:counter/models/counter.dart';
+import 'package:counter/values/texts.dart';
 import 'package:flutter/material.dart';
 
 class MainBloc extends ChangeNotifier {
@@ -6,7 +7,7 @@ class MainBloc extends ChangeNotifier {
   Counter current;
 
   String currentCounterTitle() {
-    if (current == null) return "No counter";
+    if (current == null) return Texts.homeNull;
     else return current.title;
   }
 

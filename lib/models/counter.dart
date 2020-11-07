@@ -4,5 +4,5 @@ class Counter {
   final String title;
   final int count;
 
-  Counter(this.title, @required this.count);
+  Counter({@required this.title, @required this.count});
 }
