@@ -1,3 +1,4 @@
+import 'package:counter/features/manager/ui/manager_list_item.dart';
 import 'package:counter/main_bloc.dart';
 import 'package:counter/models/counter.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class ManagerListing extends StatelessWidget {
         itemCount: list.length,
         itemBuilder: (context, index) {
           final counter = list[index];
-          return Container(child: Text("${counter.title} ${counter.count}"));
+          return ManagerListItem(counter: counter);
         });
   }
 }

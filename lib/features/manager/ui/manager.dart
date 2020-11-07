@@ -11,7 +11,7 @@ class Manager extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Counter App"),
+        title: Text("Manage Counters"),
       ),
       body: Center(
           child: context.watch<MainBloc>().counters.isNotEmpty
@@ -41,6 +41,8 @@ class Manager extends StatelessWidget {
           DialogButton(
               child: Text("Save"),
               onPressed: () {
+                if (text.isEmpty) return;
+
                 context.read<MainBloc>().add(text);
                 Navigator.pop(context);
               })
