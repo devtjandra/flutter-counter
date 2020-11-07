@@ -14,13 +14,31 @@ class MainBloc extends ChangeNotifier {
   }
 
   void add(String title) {
-    counters.add(Counter(count: 0, title: title));
+    // TODO: Check for unique title
+    final newCounter = Counter(count: 0, title: title);
+    counters.add(newCounter);
+    current = newCounter;
     notifyListeners();
   }
 
-  void increment() {}
+  void increment() {
+    if (current == null) return;
 
-  void decrement() {}
+    current.count++;
+    notifyListeners();
+  }
 
-  void reset() {}
+  void decrement() {
+    if (current == null) return;
+
+    if (current.count > 0) current.count--;
+    notifyListeners();
+  }
+
+  void reset() {
+    if (current == null) return;
+
+    current.count = 0;
+    notifyListeners();
+  }
 }

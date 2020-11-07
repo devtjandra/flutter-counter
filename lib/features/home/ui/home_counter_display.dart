@@ -5,16 +5,18 @@ import 'package:provider/provider.dart';
 class HomeCounterDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(context.watch<MainBloc>().currentCounterTitle()),
-        if (context.watch<MainBloc>().current != null)
-          Text(
-            context.watch<MainBloc>().current.count.toString(),
-            style: Theme.of(context).textTheme.headline4,
-          ),
-      ],
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(context.watch<MainBloc>().currentCounterTitle()),
+          if (context.watch<MainBloc>().current != null)
+            Text(
+              context.watch<MainBloc>().current.count.toString(),
+              style: Theme.of(context).textTheme.headline4,
+            ),
+        ],
+      ),
     );
   }
 }
